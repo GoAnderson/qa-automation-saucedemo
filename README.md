@@ -16,6 +16,12 @@ cypress/
 
 ---
 
+# 🚀 Objetivo do Repositório
+
+Este repositório foi criado como estrutura base para projetos de automação E2E utilizando Cypress, servindo como modelo reutilizável para estudos, portfólio e evolução contínua em automação de testes.
+
+---
+
 # 📚 Objetivo da Estrutura
 
 O projeto utiliza uma estrutura baseada em **Page Object Model (POM)**, visando:
@@ -58,14 +64,17 @@ Arquivos `.json` armazenam dados reutilizáveis como:
 ### Exemplo:
 
 ```json
-credenciais-validas.json
+{
+  "username": "standard_user",
+  "password": "secret_sauce"
+}
 ```
 
 ---
 
 ## 📁 support/pages/
 
-Responsável pela implementação do **Page Object Model**.
+Responsável pela implementação do **Page Object Model (POM)**.
 
 Cada página contém:
 
@@ -79,15 +88,36 @@ Cada página contém:
 
 ```javascript
 const elements = {
-    buttons: {},
-    inputs: {},
-    messages: {}
+
+    inputs: {
+        username: '',
+        password: ''
+    },
+
+    buttons: {
+        loginButton: ''
+    },
+
+    messages: {
+
+    }
+
 }
 
 export default {
-    exampleMethod() {
+
+    fillUsername(username) {
+
+    },
+
+    fillPassword(password) {
+
+    },
+
+    clickLogin() {
 
     }
+
 }
 ```
 
@@ -112,6 +142,17 @@ describe('Login', () => {
 
 })
 ```
+
+---
+
+# 📐 Convenções Utilizadas
+
+- Arquivos de teste: `.cy.js`
+- Fixtures: `.json`
+- Pages: `.js`
+- Massa de dados separada dos cenários
+- Métodos nomeados por ação/comportamento
+- Estrutura baseada em reutilização e manutenção
 
 ---
 
