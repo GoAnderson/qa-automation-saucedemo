@@ -1,0 +1,60 @@
+Cenário 1 — Login válido
+Dado que o usuário esteja na página de login
+Quando preencher usuário e senha válidos
+E clicar no botão de login
+Então deverá acessar a página de produtos
+E visualizar a lista de produtos disponíveis
+
+
+Cenário 2 — Login inválido
+Dado que o usuário esteja na página de login
+Quando preencher usuário e senha inválidos
+E clicar no botão de login
+Então deverá visualizar uma mensagem de erro
+E permanecer na página de login
+
+Cenário 3 — Campos obrigatórios
+Dado que o usuário esteja na página de login
+Quando clicar no botão de login sem preencher usuário e senha
+Então deverá visualizar uma mensagem informando que os campos são obrigatórios
+
+
+
+FUNCIONALIDADE 2 — PRODUTOS
+
+Cenário 4 — Adicionar produto ao carrinho
+Dado que o usuário esteja autenticado no sistema
+Quando adicionar um produto ao carrinho
+Então o contador do carrinho deverá ser atualizado
+E o produto deverá permanecer listado no carrinho
+
+Cenário 5 — Remover produto do carrinho
+Dado que o usuário tenha um produto adicionado ao carrinho
+Quando remover o produto do carrinho
+Então o contador do carrinho deverá ser atualizado
+E o produto não deverá mais aparecer no carrinho
+
+
+
+FUNCIONALIDADE 3 — CHECKOUT
+
+Cenário 6 — Finalizar checkout com sucesso
+Dado que o usuário tenha produtos adicionados ao carrinho
+Quando acessar o checkout
+E preencher os dados obrigatórios
+E finalizar a compra
+Então deverá visualizar a mensagem de confirmação do pedido
+
+Cenário 7 — Validar campos obrigatórios do checkout
+Dado que o usuário esteja na etapa de checkout
+Quando tentar continuar sem preencher os dados obrigatórios
+Então deverá visualizar mensagens de validação dos campos obrigatórios
+
+
+
+FUNCIONALIDADE 4 — FILTROS
+
+Cenário 8 — Ordenar produtos
+Dado que o usuário esteja na página de produtos
+Quando selecionar a ordenação de produtos
+Então os produtos deverão ser exibidos conforme o filtro selecionado

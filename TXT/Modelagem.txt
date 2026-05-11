@@ -1,0 +1,49 @@
+CYPRESS > E2E > login.cy.js
+
+const user_data = require('../fixtures/example_datas.json')
+
+import example_page from "../support/pages/example_page"
+
+describe('Cenário de teste', () => {
+    
+    beforeEach('Exemplo de execucao antes', () => {
+        exampple_page.accessExamplePage()
+    })
+
+
+    it('Caso de teste', () => {
+
+    })
+})
+
+____
+
+Cypress > fixtures > example_datas.json
+{
+  "name": "Anderson Guimarães",
+  "email": "anderson@gmail.com",
+  "password": "123456"
+}
+
+
+____
+
+cypress > support > pages > example_pages.js
+
+const elements = {
+    buttons: {
+        cadastro: '.fa-lock',
+    }
+}
+
+export default{
+
+    // Entrar na página inicial
+    accessCadastroPage(){
+        cy.get(elements.buttons.cadastro)
+        .should('exist')
+        .click()
+    },
+
+}
+
