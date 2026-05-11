@@ -1,11 +1,30 @@
 const elements = {
+    inputs: {
+        username: '',
+        password: ''
+    },
+
     buttons: {
-        exemplo : '',
+        loginButton: ''
+    },
+
+    messages: {
+
     }
 }
 
-export default{
-    example(){
-        
+export default {
+
+    fillUsername(username) {
+
+    },
+
+    fillPassword(password) {
+
+    },
+
+    clickLogin() {
+
     }
+
 }
