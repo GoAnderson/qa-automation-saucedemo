@@ -65,7 +65,7 @@ export default {
             .should('contain', elements.texts.invalidCredentials)
     },
 
-    // Assert na mensagempelo qual o usuario não colocou nem login nem senha
+    // Assert na mensagem pelo qual o usuario não colocou nem login nem senha
     assertRequiredFieldsError(){
         cy.url().should('include', 'saucedemo.com')
 

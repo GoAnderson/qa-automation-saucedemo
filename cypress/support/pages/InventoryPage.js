@@ -16,7 +16,8 @@ const elements = {
 
 export default {
 
-    validateInventoryPage(){
+    // Verificar que entrou na página do inventário(pós login)
+    assertInventoryPage(){
         cy.url().should('include', '/inventory.html')
 
         cy.get(elements.productsTitle)

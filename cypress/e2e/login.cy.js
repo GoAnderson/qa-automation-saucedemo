@@ -16,7 +16,7 @@ describe('Login', () => {
         loginPage.typePassword(validCredentials.password)
         loginPage.clickLogin()
 
-        inventoryPage.validateInventoryPage()
+        inventoryPage.assertInventoryPage()
     })
 
         it('CN02- Deve exibir mensagem de erro ao realizar login inválido', () => {
