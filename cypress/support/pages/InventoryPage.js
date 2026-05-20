@@ -8,10 +8,13 @@ const elements = {
         loginButton: '[data-test="login-button"]'
     },
 
-    messages: {
-
+    cart: {
+        icon: '[data-test="shopping-cart-link"]'
     },
-    productsTitle: '[data-test="title"]'
+    productsTitle: '[data-test="title"]',
+    labels: {
+        inventoryItem: '.inventory_item'
+    }
 }
 
 export default {
@@ -24,5 +27,26 @@ export default {
             .should('be.visible')
             .and('have.text', 'Products')
     },
+
+    // Adicionar produtos ao carrinho
+    addProductToCart(productName) {
+        cy.contains(elements.labels.inventoryItem, productName)
+            .find('button')
+            .click()
+    },
+
+    // Validar que o ícone do carrinho está adicionando corretamente
+    assertCartQuantity(){
+        cy.get(elements.cart.icon)
+            .should('have.text', '1')
+    },
+
+    // Garantir que está na pagina do carrinho corretamente e o elemento adicionado está lá
+    clickCartIcon(){
+        cy.get(elements.cart.icon)
+            .should('be.visible')
+            .click()        
+    }
+
 
 }

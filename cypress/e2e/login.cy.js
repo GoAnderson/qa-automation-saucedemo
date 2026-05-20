@@ -3,6 +3,7 @@ const invalidCredentials = require('../fixtures/invalidCredentials.json')
 
 import loginPage from '../support/pages/loginPage'
 import inventoryPage from '../support/pages/InventoryPage'
+import cartPage from '../support/pages/cartPage'
 
 describe('Login', () => {
 
@@ -19,7 +20,7 @@ describe('Login', () => {
         inventoryPage.assertInventoryPage()
     })
 
-        it('CN02- Deve exibir mensagem de erro ao realizar login inválido', () => {
+    it('CN02- Deve exibir mensagem de erro ao realizar login inválido', () => {
         loginPage.typeUsername(invalidCredentials.username)
         loginPage.typePassword(invalidCredentials.password)
         loginPage.clickLogin()
@@ -27,9 +28,27 @@ describe('Login', () => {
         loginPage.assertMessageInvalidCredentials()
     })
 
-        it('CN03- Campos obrigatórios', () => {
+    it('CN03- Campos obrigatórios', () => {
         loginPage.clickLogin()
         loginPage.assertRequiredFieldsError()
     })
+
+    it('CN04 - Adicionar produto ao carrinho', () => {
+        loginPage.typeUsername(validCredentials.username)
+        loginPage.typePassword(validCredentials.password)
+        loginPage.clickLogin()
+
+        inventoryPage.assertInventoryPage()
+        // Adicionar nome do produto escolhido
+        inventoryPage.addProductToCart('Sauce Labs Backpack')
+        inventoryPage.assertCartQuantity()
+        inventoryPage.clickCartIcon()
+
+        // Adicionar nome do produto escolhido
+        cartPage.assertCartPage('Sauce Labs Backpack')
+
+
+    })
+
 
 })
